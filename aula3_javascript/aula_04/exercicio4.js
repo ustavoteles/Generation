@@ -43,6 +43,7 @@ let idade,
     pessoa = 0
 
 //falta implementar o os usarios que nao quiseram responder!
+//perguntar se posso usar o break pra fazer a lição
 console.log("======QUESTIONÁRIO======")
 while (continua === true) {
     idade = leia.questionInt("Qual a sua idade?: ")
@@ -55,7 +56,7 @@ while (continua === true) {
     console.log("5 - Homem Trans")
     console.log("6 - Outros")
 
-    idGenero = leia.questionInt("Qual a sua identidade de genero?")
+    idGenero = leia.questionInt("Qual a sua identidade de genero ?:")
     console.clear()
 
 
@@ -65,22 +66,22 @@ while (continua === true) {
     console.log("3 - Mobile")
     console.log("4 - FullStack")
 
-    idDev = leia.questionInt("Qual a sua função como Pessoa Desenvolvedora?: ")
+    idDev = leia.questionInt("Qual a sua funcao como Pessoa Desenvolvedora ?: ")
     console.clear()
 
     if (idDev === 1) {
         backend++
     }
 
-    if (idGenero === 1 || idGenero === 4 && idDev === 2) {
+    if ((idGenero === 1 || idGenero === 4) && idDev === 2) {
         frontendMulherETrans++
     }
 
-    if (idGenero === 4 || idGenero === 5 && idade >= 40) {
+    if ((idGenero === 2 || idGenero === 5) && idade >= 40) {
         mobileHomemETrans40++
     }
 
-    if (idGenero === 3 && idDev === 4 && idade <= 30) {
+    if ((idGenero === 3 && idDev === 4) && idade <= 30) {
         pessoasNaoBinarias30++
     }
 
@@ -99,6 +100,6 @@ console.log(`Quantidade de Mulheres Cis e Trans Desenvolvedoras Frontend: ${fron
 console.log(`Quantidade de Homem Cis e Trans Desenvolvedoras Mobile maiores de 40 anos: ${mobileHomemETrans40}`)
 console.log(`Quantidade de Pessoas Não Binários Desenvolvedoras Fullstack menor de 30: ${pessoasNaoBinarias30}`)
 console.log(`Número total de pessoas que responderam à pesquisa: ${pessoasResponderam}`)
-console.log(`A média de idade das pessoas que responderam à pesquisa: ${somaIdade / pessoasResponderam}`)
+console.log(`A média de idade das pessoas que responderam à pesquisa: ${(somaIdade / pessoasResponderam).toFixed(2)}`)
 
 
