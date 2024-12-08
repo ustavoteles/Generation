@@ -26,7 +26,7 @@ console.table(num1)
 console.log("\nExiste o numero 5 no array", num1.includes(5));
 
 //verificamos qual é o indice de um elemento
-console.log("\nQual é indice do numero 3 no array?", num1.indexOf(3));
+console.log("\Qual é indice do numero 3 no array?", num1.indexOf(3));
 
 
 //removemos um numero da colecao
