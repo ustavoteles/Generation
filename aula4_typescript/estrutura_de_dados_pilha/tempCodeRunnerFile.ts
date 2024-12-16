@@ -1,1 +1,0 @@
-pilha.push("prato azul");
