@@ -1,3 +1,5 @@
+USE db_estoque;
+
 CREATE TABLE tb_marcas(
 	id bigint auto_increment,
     nome varchar(20) not null,
@@ -82,5 +84,25 @@ E COM NOME COM QUE POSSUA "CAL"*/
 
 SELECT * FROM tb_produtos where marca_id = 3 or nome like '%cal%';
 
+SELECT * FROM tb_produtos INNER JOIN tb_marcas 
+ON tb_marcas.id = tb_produtos.marca_id;
+
+SELECT tb_produtos.nome, tb_produtos.preco, tb_marcas.nome FROM tb_produtos 
+INNER JOIN tb_marcas ON tb_marcas.id = tb_produtos.marca_id
+WHERE tb_marcas.nome = "Adidas"
+AND tb_produtos.preco > 60;
+
+SELECT tb_produtos.nome, tb_produtos.preco, tb_marcas.nome FROM tb_produtos 
+INNER JOIN tb_marcas ON tb_marcas.id = tb_produtos.marca_id
+WHERE tb_produtos.nome = "calça"
+OR tb_produtos.nome = "camisa";
+
+-- prioriza o id do produto
+SELECT * FROM tb_produtos LEFT JOIN tb_marcas 
+ON tb_marcas.id = tb_produtos.marca_id;
+
+-- prioriza o marca_id
+SELECT * FROM tb_produtos right JOIN tb_marcas 
+ON tb_marcas.id = tb_produtos.marca_id;
 
 SELECT * FROM tb_produtos;
